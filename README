@@ -45,4 +45,4 @@ Just call it in your manifest.
             content: %template(['${some_other_var}']) #Variable inside function
         /tmp/2: *anchor
         /tmp/3:
-            source: 'puppet:///modules/${module_name}/${environment}/%{sum_function(['${some_var}'])}/}' #it can do it. I hope;)
+            source: 'puppet:///modules/${module_name}/${environment}/%{sum_function(['${some_var}'])}/' #it can do it. I hope;)
