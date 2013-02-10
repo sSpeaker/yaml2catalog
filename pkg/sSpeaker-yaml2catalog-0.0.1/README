@@ -1,0 +1,45 @@
+# yaml2catalog #
+This module provides "yaml2catalog" function. That function allows writing simple puppet manifests in yaml format. "create_resources" was taken as a base.
+
+At this point it support:
+
+ * Resources
+ * Variables
+ * Selectors
+ * Functions
+
+# Usage #
+Just call it in your manifest.
+
+    yaml2catalog('/tmp/test.yaml')
+
+# Yaml example #
+    ---
+    variables: #Special sections for declaring Puppet variables
+        local: #Declaring local variables
+            user      : root
+            file_mode : '0777'
+            service_name ? osfamily: #Selector example
+                RedHat: apache22
+                Debian: httpd
+            package_name ? osfamily:
+                RedHat  : apache22
+                Debian  : httpd
+                default : apache22 #Default will be asigned if "osfamily" is not 'RedHat' or 'Debian'
+    package:
+          httpd:
+              ensure  : present
+    service:
+        $service_name: # Variable
+            ensure  : running
+            require : 'File[/etc/httpd/httpd.conf]'
+    file:
+        global: #Global settings for all resources of this type
+            ensure : present
+            owner  : $user # Variable
+            mode   : $file_mod
+        /etc/httpd/httpd.conf:
+            content: %template(['httpd.conf.erb']) # Function.
+        /tmp/1: &anchor #Support yaml achor syntax
+            ensure: directory
+        /tmp/2: *anchor

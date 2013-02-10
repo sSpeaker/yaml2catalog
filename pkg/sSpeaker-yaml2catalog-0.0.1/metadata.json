@@ -1,0 +1,24 @@
+{
+  "author": "sSpeaker",
+  "dependencies": [
+
+  ],
+  "source": "UNKNOWN",
+  "types": [
+
+  ],
+  "project_page": "UNKNOWN",
+  "license": "Apache License, Version 2.0",
+  "version": "0.0.1",
+  "checksums": {
+    "lib/puppet/parser/functions/yaml2catalog.rb": "cf31f5ccbc4741dc0f4a4fdbf62aa19a",
+    "Modulefile": "457994f33503c87bd3d93673551887d3",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "tests/init.pp": "ed8c0754872ccbd1354a400795ec370b",
+    "manifests/init.pp": "d45bf50b1551e00840004aacc4e9b282",
+    "README": "d7435cd41e95eba53bda1134b77d52e5"
+  },
+  "description": "UNKNOWN",
+  "name": "sSpeaker-yaml2catalog",
+  "summary": "UNKNOWN"
+}
