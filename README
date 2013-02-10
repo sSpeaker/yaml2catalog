@@ -42,4 +42,7 @@ Just call it in your manifest.
             content: %template(['httpd.conf.erb']) # Function.
         /tmp/1: &anchor #Support yaml achor syntax
             ensure: directory
+            content: %template(['${some_other_var}']) #Variable inside function
         /tmp/2: *anchor
+        /tmp/3:
+            source: 'puppet:///modules/${module_name}/${environment}/%{sum_function(['${some_var}'])}/}' #it can do it. I hope;)
